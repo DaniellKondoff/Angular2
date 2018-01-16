@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from './course';
 import { FilterTextComponent } from '../blocks/filter-text';
-import { store, filterCourses } from '../store';
+import { NgRedux, select } from 'ng2-redux';
+import { Observable } from 'rxjs/Observable';
+import { CourseActions } from './course.actions';
+
 
 @Component({
   selector: 'app-course-list',
@@ -9,27 +12,20 @@ import { store, filterCourses } from '../store';
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
-  filteredCourses = [];
+  @select('filteredCourses') filteredCourses: Observable<Course>
 
-  constructor() {
+  constructor(private courseActions: CourseActions) {
   }
 
   filterChanged(searchText: string) {
     console.log('user searched: ', searchText);
-    store.dispatch(filterCourses(searchText))
+    this.courseActions.filterCourses(searchText);
   }
 
 
-  updateFromStore(){
-    const state = store.getState();
-    this.filteredCourses = state.filteredCourses;
-  }
 
   ngOnInit() {
-    this.updateFromStore();
-    store.subscribe(() => {
-      this.updateFromStore();
-    })
+    this.courseActions.getCourses();
     componentHandler.upgradeDom();
   }
 }

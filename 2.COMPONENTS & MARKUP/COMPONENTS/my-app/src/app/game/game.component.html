@@ -1,0 +1,18 @@
+<div>
+  <h1>Games List</h1>
+
+<p>Pick a game to Buy</p>
+<ul>
+  <li *ngFor="let game of games">
+    <h1 [class.mySyle]="isShown">{{game.title}}</h1>
+    <br>
+    <img [src]="game.image" alt="picture">
+  </li>
+</ul>
+
+<button (click)="showContacts()">Show contacts</button>
+</div>
+
+<div *ngIf="isShown">
+  <h1>Our contacts......</h1>
+</div>

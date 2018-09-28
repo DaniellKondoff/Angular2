@@ -3,8 +3,10 @@
 
 <p>Pick a game to Buy</p>
 <ul>
-  <li *ngFor="let game of games">
-    <h1 [class.mySyle]="isShown">{{game.title}}</h1>
+  <li *ngFor="let game of games; let i = index">
+    <h1 [class.mySyle]="isShown">{{game.title | titlecase}}</h1>
+    <br>
+    <h1>{{i}}</h1>
     <br>
     <img [src]="game.image" alt="picture">
   </li>
@@ -16,3 +18,14 @@
 <div *ngIf="isShown">
   <h1>Our contacts......</h1>
 </div>
+
+<div>
+  <input #name placeholder="name">
+  <button (click)="showName(name.value)">Show Name</button>
+  <br>
+</div>
+<div>
+  <input [(ngModel)]="userName" placeholder="name">
+  <h1>Your name is: {{userName}}</h1>
+</div>
+

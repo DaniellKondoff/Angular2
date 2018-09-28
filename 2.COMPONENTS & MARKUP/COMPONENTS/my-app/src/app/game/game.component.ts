@@ -9,6 +9,7 @@ import { Game } from '../domain/game';
 export class GameComponent implements OnInit {
   games : Array<Game>
   isShown: boolean = false;
+  userName: string = "My Name";
   constructor() { 
     this.games = [{id:1, title:"FirstGame", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNqjIMI4DXakUgs46rwVhhjMFggytM8ivj5euEzFB1kiPauG6J"}, {id:2, title:"SecondsGame", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNqjIMI4DXakUgs46rwVhhjMFggytM8ivj5euEzFB1kiPauG6J"}]
   }
@@ -18,5 +19,10 @@ export class GameComponent implements OnInit {
 
   showContacts(){
     this.isShown = !this.isShown;
+  }
+
+  showName(name){
+    this.userName = name;
+    console.log(this.userName)
   }
 }

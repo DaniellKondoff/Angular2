@@ -9,6 +9,8 @@
     <h1>{{i}}</h1>
     <br>
     <img [src]="game.image" alt="picture">
+    <br>
+    <app-subscribe (notification)="notifyMe($event)" [subGame]="game"></app-subscribe>
   </li>
 </ul>
 

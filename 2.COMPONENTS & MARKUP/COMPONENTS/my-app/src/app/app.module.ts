@@ -4,12 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { GameComponent } from './game/game.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     GameComponent,
+    SubscribeComponent,
   ],
   imports: [
     BrowserModule,

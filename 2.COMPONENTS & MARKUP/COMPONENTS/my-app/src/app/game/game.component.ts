@@ -25,4 +25,8 @@ export class GameComponent implements OnInit {
     this.userName = name;
     console.log(this.userName)
   }
+
+  notifyMe(notification: string){
+    console.log(notification)
+  }
 }

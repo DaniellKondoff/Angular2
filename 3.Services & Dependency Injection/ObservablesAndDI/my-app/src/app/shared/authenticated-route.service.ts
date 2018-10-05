@@ -1,8 +1,11 @@
-import { CanActivate } from "@angular/router";
+import { CanActivate, Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 
 @Injectable()
 export class AuthenticatedRoute implements CanActivate {
+    constructor(private router: Router){
+
+    }
     canActivate() {
         return false;
     }

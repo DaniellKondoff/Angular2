@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { GitHubProfile } from "./gitHubProfile";
+import { GitHubProfile } from "./gitHubProfile.model";
 
 @Injectable()
 export class HomeService {

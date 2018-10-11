@@ -10,19 +10,32 @@ export class MoviesComponent implements OnInit {
 
   popular :Array<Movie>
   theaters :Array<Movie>
+  kids : Movies
+  bestDramas: Movies
   constructor(private movieService: MoviesService) { }
 
   ngOnInit() {
     this.movieService.getPopular()
     .subscribe(data => {
       this.popular = data;
-      console.log(this.popular)
     })
 
     this.movieService.getInTheatres()
                     .subscribe(data => {
                       this.theaters = data;
                     })
+    
+    this.movieService.getkidsMovie()
+      .subscribe(
+        data => {
+          this.kids = data;
+        }
+      )
+    
+      this.movieService.getBestDramas()
+      .subscribe(data => {
+        this.bestDramas = data;
+      })
   }
 
 }

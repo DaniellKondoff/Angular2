@@ -8,6 +8,8 @@ export class MoviesService {
   private path :string = 'https://api.themoviedb.org/3/';
   private popular :string = 'discover/movie?sort_by=popularity.desc';
   private theatres :string = 'discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22'
+  private kids :string = 'discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc'
+  private dramas :string = 'discover/movie?with_genres=18&primary_release_year=2014'
   private auth :string = '&api_key=';
 
   constructor(private httpClient: HttpClient) { }
@@ -18,5 +20,13 @@ export class MoviesService {
 
   getInTheatres() :Observable<Array<Movie>> {
     return this.httpClient.get<Array<Movie>>(this.path + this.theatres + this.auth + this.apiKey);
+  }
+
+  getkidsMovie() :Observable<Movies> {
+    return this.httpClient.get<Movies>(this.path + this.kids + this.auth + this.apiKey)
+  }
+
+  getBestDramas() :Observable<Movies> {
+    return this.httpClient.get<Movies>(this.path + this.dramas + this.auth + this.apiKey)
   }
 }

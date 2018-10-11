@@ -5,5 +5,5 @@ interface Movie {
 }
 
 interface Movies {
-    results : Array<Object>
+    results : Array<Movie>
 }

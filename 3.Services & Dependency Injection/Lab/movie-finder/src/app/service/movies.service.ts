@@ -12,11 +12,11 @@ export class MoviesService {
 
   constructor(private httpClient: HttpClient) { }
 
-    getPopular() :Observable<Movies> {
-    return this.httpClient.get<Movies>(this.path + this.popular + this.auth + this.apiKey);
+    getPopular() :Observable<Array<Movie>> {
+    return this.httpClient.get<Array<Movie>>(this.path + this.popular + this.auth + this.apiKey);
   }
 
-  getInTheatres() :Observable<Movies> {
-    return this.httpClient.get<Movies>(this.path + this.theatres + this.auth + this.apiKey);
+  getInTheatres() :Observable<Array<Movie>> {
+    return this.httpClient.get<Array<Movie>>(this.path + this.theatres + this.auth + this.apiKey);
   }
 }

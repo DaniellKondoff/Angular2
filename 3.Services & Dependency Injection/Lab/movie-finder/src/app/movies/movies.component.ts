@@ -8,15 +8,15 @@ import { MoviesService } from '../service/movies.service';
 })
 export class MoviesComponent implements OnInit {
 
-  popular :Object
-  theaters :Object
+  popular :Array<Movie>
+  theaters :Array<Movie>
   constructor(private movieService: MoviesService) { }
 
   ngOnInit() {
     this.movieService.getPopular()
     .subscribe(data => {
       this.popular = data;
-      console.log(data)
+      console.log(this.popular)
     })
 
     this.movieService.getInTheatres()

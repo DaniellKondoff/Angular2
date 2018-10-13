@@ -13,6 +13,7 @@ export class MoviesService {
   private movie :string = 'movie/'
   private auth :string = '&api_key=';
   private movieAuth :string = '?api_key=';
+  private searchMovie : string ="search/movie?query="
 
   constructor(private httpClient: HttpClient) { }
 
@@ -33,6 +34,10 @@ export class MoviesService {
   }
 
   getMovie(id){
-    return this.httpClient.get(`${this.path}${this.movie}${id}${this.movieAuth}${this.apiKey}`)
+    return this.httpClient.get(this.path + this.movie + id + this.movieAuth + this.apiKey)
+  }
+
+  getMovieByName(search){
+    return this.httpClient.get(this.path + this.searchMovie + search + this.auth + this.apiKey)
   }
 }

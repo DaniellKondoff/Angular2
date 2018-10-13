@@ -12,6 +12,8 @@ export class MoviesComponent implements OnInit {
   theaters :Array<Movie>
   kids : Movies
   bestDramas: Movies
+  searchMovies: any
+  isSearch: boolean
   constructor(private movieService: MoviesService) { }
 
   ngOnInit() {
@@ -36,6 +38,13 @@ export class MoviesComponent implements OnInit {
       .subscribe(data => {
         this.bestDramas = data;
       })
+  }
+
+  search(myQuery) {
+    this.movieService.getMovieByName(myQuery['search']).subscribe(data => {
+      this.searchMovies = data;
+      this.isSearch = true
+    })
   }
 
 }

@@ -19,7 +19,6 @@ export class SelectedMovieComponent implements OnInit {
           this.movie=data
       })
     })
-    console.log(this.movie)
   }
 
 }

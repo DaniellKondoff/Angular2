@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutesModule } from './app.routing';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -21,7 +22,8 @@ import { SelectedMovieComponent } from './selected-movie/selected-movie.componen
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutesModule
+    AppRoutesModule,
+    FormsModule
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent]

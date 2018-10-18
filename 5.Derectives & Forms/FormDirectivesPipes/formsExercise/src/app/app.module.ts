@@ -9,6 +9,7 @@ import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { RegisterFormComponent } from './auth/register-form/register-form.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutesModule } from './app.routing';
+import { AuthService } from './auth/service/auth-service.service'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { AppRoutesModule } from './app.routing';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

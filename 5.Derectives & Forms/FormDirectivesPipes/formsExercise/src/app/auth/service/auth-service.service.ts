@@ -15,42 +15,18 @@ export class AuthService {
   private currentAuthtoken : string;
   constructor(private httpClient: HttpClient) { }
 
-  private createAuthHeaders(type : string) : HttpHeaders {
-    if(type === 'Basic') {
-      return new HttpHeaders({
-        'Authorization': `Basic ${btoa(`${appKey}:${appSecret}`)}`,
-        'Content-Type': 'application/json'
-      })
-    } else{
-      return new HttpHeaders({
-        'Authorization': `Kinvey ${localStorage.getItem('authtoken')}`,
-        'Content-Type': 'application/json'
-      })
-    }
-  }
-
   login(loginModel :LoginModel) {
     return  this.httpClient.post(loginUrl,
-    JSON.stringify(loginModel),
-    {
-    headers: this.createAuthHeaders('Basic')
-    })
+    JSON.stringify(loginModel))
   }
 
   register(registerModel :RegisterModel) {
     return  this.httpClient.post(registerUrl,
-    JSON.stringify(registerModel),
-    {
-    headers: this.createAuthHeaders('Basic')
-    })
+    JSON.stringify(registerModel))
   }
 
   logout(){
-    return this.httpClient.post(logoutUrl,
-    {},
-    {
-    headers: this.createAuthHeaders('Kinvey')
-    })
+    return this.httpClient.post(logoutUrl,{})
   }
 
   checkIfLoggedIn() {

@@ -1,6 +1,5 @@
 import { Action } from "@ngrx/store";
 import { Course } from "../../models/course.model"
-import { type } from "os";
 
 export const ADD_COURSE = '[COURSE] Add';
 export const REMOVE_COURSE = '[COURSE] Remove';

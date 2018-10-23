@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import { AddCourse} from '../../store/actions/courses.actions'
 
 @Component({
   selector: 'app-create-course',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCourseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
   }
 
+  addCourse(name, url){
+    this.store.dispatch(new AddCourse({name, url}))
+  }
 }
